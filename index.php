@@ -9,6 +9,7 @@ require_once 'MotorWay.php';
 require_once 'PedestrianWay.php';
 require_once 'Skateboard.php';
 require_once 'ResidentialWay.php';
+require_once 'LightableInterface.php';
 
 
 $car1 = new Car('green', 2, 'electricity',1);
@@ -56,7 +57,7 @@ var_dump($Pedestrian1->getCurrentVehicle());
 $skate1 = new Skateboard('black', 0);
 $residential1 = new ResidentialWay;
 $residential1->addVehicle($skate1);
-var_dump($residential1->getCurrentVehicle());*/
+var_dump($residential1->getCurrentVehicle());
 
     try {
         echo $car1->start('On');
@@ -64,4 +65,12 @@ var_dump($residential1->getCurrentVehicle());*/
         $car1->setParkBrake(false);
     } finally {
         echo 'ma voiture roule comme un donut';
-    }
+    }*/
+    
+    echo $car1->switchOn()."<br>";
+    echo $car1->switchOff()."<br>";
+
+    echo $bicycle->switchOn()."<br>";
+    $bicycle->setCurrentSpeed(15);
+    echo $bicycle->switchOn()."<br>";
+    echo $bicycle->switchOff();
