@@ -11,10 +11,10 @@ require_once 'Skateboard.php';
 require_once 'ResidentialWay.php';
 
 
-$car1 = new Car('green', 2, 'electricity');
+$car1 = new Car('green', 2, 'electricity',1);
 /*var_dump($car1);*/
 
-$car2 = new Car('yellow', 4, 'fried oil');
+$car2 = new Car('yellow', 4, 'fried oil',0);
 /*var_dump($car2);*/
 
 /*echo $car1->forward().'<br>';
@@ -35,15 +35,15 @@ echo $truck->brake().'<br>';*/
 $truck->setLoad(40);
 echo $truck->capacityVerification().'<br>';
 
-/*truck filled?
+truck filled?
 $truck->setLoad(60);
 echo $truck->capacityVerification().'<br>';
 
-/*truck under or overfilled?
+truck under or overfilled?
 $truck->setLoad(0);
 echo $truck->capacityVerification().'<br>';
 $truck->setLoad(70);
-echo $truck->capacityVerification().'<br>';*/
+echo $truck->capacityVerification().'<br>';
 
 $Motorway666 = new MotorWay;
 $Motorway666->addVehicle($car1);
@@ -56,4 +56,12 @@ var_dump($Pedestrian1->getCurrentVehicle());
 $skate1 = new Skateboard('black', 0);
 $residential1 = new ResidentialWay;
 $residential1->addVehicle($skate1);
-var_dump($residential1->getCurrentVehicle());
+var_dump($residential1->getCurrentVehicle());*/
+
+    try {
+        echo $car1->start('On');
+    } catch(Exception $e) {
+        $car1->setParkBrake(false);
+    } finally {
+        echo 'ma voiture roule comme un donut';
+    }

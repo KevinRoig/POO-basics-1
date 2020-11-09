@@ -14,6 +14,7 @@ private $energy;
 /*@var int*/
 private $energyLevel;
 
+
 public function __construct(string $color, int $nbSeats, string $energy)
 {
     parent::__construct($color, $nbSeats);
@@ -43,4 +44,23 @@ public function setEnergyLevel(int $energylevel) : void
     $this->energyLevel = $energylevel;
 }
 
+/*@var bool*/
+private $hasParkBrake = true;
+
+public function setParkBrake(bool $hasParkBrake): void
+{
+    $this->hasParkBrake = $hasParkBrake;
+}
+
+public function start(string $answer): string
+{
+    if ($this->hasParkBrake == 1){
+        throw new Exception();
+    }
+    if ($answer == 'On') {
+        return 'The car is on';
+    } else {
+        return 'You have to start the car';
+    }
+}
 }
