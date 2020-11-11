@@ -10,6 +10,7 @@ require_once 'PedestrianWay.php';
 require_once 'Skateboard.php';
 require_once 'ResidentialWay.php';
 require_once 'LightableInterface.php';
+require_once 'Speedometer.php';
 
 
 $car1 = new Car('green', 2, 'electricity',1);
@@ -67,10 +68,13 @@ var_dump($residential1->getCurrentVehicle());
         echo 'ma voiture roule comme un donut';
     }*/
     
-    echo $car1->switchOn()."<br>";
+    /*echo $car1->switchOn()."<br>";
     echo $car1->switchOff()."<br>";
 
     echo $bicycle->switchOn()."<br>";
     $bicycle->setCurrentSpeed(15);
     echo $bicycle->switchOn()."<br>";
-    echo $bicycle->switchOff();
+    echo $bicycle->switchOff();*/
+
+    echo Speedometer::convertKmToMiles(10).'<br>';
+    echo Speedometer::convertMilesToKm(10);
